@@ -1,0 +1,50 @@
+<html>
+  {% extends "peliculas/base.html" %}
+  {% load static %}
+  
+  {% block content1 %}
+    <br>
+    <section>
+        <div style="width: 75%; margin: auto; background-color: black; color: white;">
+        <h4>Generos</h4>
+        {% for i in nombre_genero %}
+            <a href="{% url 'generos' i.id %}" style="color: white; " >{{i.nombre}}</a> &nbsp; &nbsp;
+        {% endfor %}
+        </div>
+    </section>
+
+    <div class="container">
+
+        <div class="row">
+      {% for pelicula in peliculas %}
+      <br>
+        <div class="card text-white bg-dark" style="width:450px; margin: 10px 10px">
+         <div class="col-md-1">
+  
+          <div class="card-body" style="text-align: center;">
+            <img class="card-img-top" src="{{pelicula.imagen.url}}" alt="Card image" style="width:400px" height="400px">
+              <h4 class="card-title" style="width: 400px;">{{pelicula.titulo}}</h4>
+              <p class="card-text" style="width: 400px;">{{pelicula.psinopsis}}</p>
+  
+          </div>
+          </div>
+        </div>
+    {% endfor %}
+</div>
+</div>
+<div class="container">
+
+    <div class="row">
+<div class="card text-white bg-dark" style="width:450px; margin: 10px 10px">
+    
+    <div class="card-body" style="text-align: center;">
+        <a href={{movie.link}}>
+            <h4 class="card-title" style="width: 400px; color: white;">Descargar</h4>
+        </a>
+    </div>
+    
+</div>
+</div>
+</div>
+  {% endblock content1 %}
+</html>

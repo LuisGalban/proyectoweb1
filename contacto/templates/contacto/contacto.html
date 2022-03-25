@@ -1,0 +1,25 @@
+<html>
+
+{% extends "peliculas/base.html" %}
+  {% load static %}
+  
+  {% block content1 %}
+
+    <br>
+      {% if "ok" in request.GET %}
+
+        <p style="color: white; text-align: center;">Se ha enviado Correctamente!!</p>
+
+      {% endif %}
+
+    <form action="" method="POST" style="text-align: center;">
+
+      {% csrf_token %}
+
+      <table style="color: white; width: 50%; margin: auto;">{{Formulario_Contacto.as_table}}</table>
+      <input type="submit" value="Enviar" style="margin: 50px;">
+
+    </form>
+    
+  {% endblock content1 %}
+</html>
